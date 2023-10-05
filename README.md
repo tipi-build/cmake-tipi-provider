@@ -1,10 +1,15 @@
 # tipi-cmake-provider: Automatic build caching for CMake FetchContent 
 **tipi.build ❤️ CMake**
 
+<img src="./assets/tipi.build%20logo.svg" witdth="100px" height="100px"/>
+<img src="./assets/CMake-Logo-and-Text.png" witdth="100px" height="100px"/>
 
+## What is it ? Why ?
 [tipi](https://tipi.build/documentation/0050-getting-started-cpp) is a Git connected automatic build cache for CMake which is configurable with a JSON file named [`.tipi/deps`](https://tipi.build/documentation/0700-dependencies) to define CMake build dependencies.
 
-This JSON file is not a native way for CMake natives to express themselves, for this reason we have created **tipi-cmake-provider**, that allows to express any dependencies with the best CMake Package Manager out there **FetchContent**.
+This way it can be used as a C++ package manager.
+
+This JSON file is not a "standard CMake" way for CMake natives to express themselves, for this reason we have created **tipi-cmake-provider**, that allows to express any dependencies with the best CMake Package Manager out there **FetchContent**.
 
 **Advantages :**
   - Without changes `FetchContent` is automatically cached.
@@ -17,6 +22,7 @@ Exactly as the CMake FetchContent documentation requires, the build will just be
 
 1. 🚀 Install the latest [`tipi` release](https://github.com/tipi-build/cli)
 2. Run the CMake build via : `tipi . -t linux|macos|windows -u`
+3. Add the FetchContent you need in your CMakeLists
 
 ```cmake
 Include(FetchContent)
@@ -42,6 +48,6 @@ Fetching the sources in big project can be slow, but also having to provide the 
 If compile flags changes in an incompatible way, the build will be performed fully from sources again.
 
 ## Help & Support
-<br/>🧚 Get [community support](https://github.com/tipi-build/cli)
+🧚 Get [community support](https://github.com/tipi-build/tipi-cmake-provider/issues)
 <br/>📖 [Read tipi documentation](https://tipi.build/documentation)
-<br/>📖 [Read CMake FetchContent Docs](https://cmake.org/cmake/help/latest/module/FetchContent.html)
+<br/>📖 [Read CMake FetchContent documentation](https://cmake.org/cmake/help/latest/module/FetchContent.html)
