@@ -20,6 +20,8 @@ This JSON file is not a "standard CMake" way for CMake natives to express themse
 ## How to use it ?
 Exactly as the CMake FetchContent documentation requires, the build will just be cached and faster to restore.
 
+It gets enabled in all CMake builds driven by tipi, 
+
 1. 🚀 Install the latest [`tipi` release](https://github.com/tipi-build/cli)
 2. Run the CMake build via : `tipi . -t linux|macos|windows -u`
 3. Add the FetchContent you need in your CMakeLists
@@ -46,6 +48,10 @@ When a cache entry is found, as it does not rely on CMake adding the subdirector
 Fetching the sources in big project can be slow, but also having to provide the exact same environments for the build to happen to get the built artifacts can also be an issue, tipi's smart caching is based on an [ABI-hash](https://tipi.build/documentation/1000-build-cache) computation, that behaves as if the project was built from sources but without the cost of building if it was already done by a peer [in the same team](https://tipi.build/documentation/1100-shared-cache), or present on the curated [central tipi cache](https://tipi.build).
 
 If compile flags changes in an incompatible way, the build will be performed fully from sources again.
+
+tipi installs the FetchContent provider by defining: [`-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=tipi_provider.cmake`](./tipi_provider.cmake).
+
+It leverages the standard CMake [DEPENDENCY_PROVIDER](https://cmake.org/cmake/help/latest/command/cmake_language.html#dependency-providers) feature dedicated to integrate with FetchContent and find_package.
 
 ## Help & Support
 🧚 Get [community support](https://github.com/tipi-build/tipi-cmake-provider/issues)
