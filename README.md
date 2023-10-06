@@ -1,4 +1,4 @@
-# tipi-cmake-provider: Automatic build caching for CMake FetchContent 
+# cmake-tipi-provider: Automatic build caching for CMake FetchContent 
 **tipi.build ❤️ CMake**
 
 <img src="./assets/tipi.build%20logo.svg" witdth="100px" height="100px"/>
@@ -9,11 +9,11 @@
 
 This way it can be used as a C++ package manager.
 
-This JSON file is not a "standard CMake" way for CMake natives to express themselves, for this reason we have created **tipi-cmake-provider**, that allows to express any dependencies with the best CMake Package Manager out there **FetchContent**.
+This JSON file is not a "standard CMake" way for CMake natives to express themselves, for this reason we have created **cmake-tipi-provider**, that allows to express any dependencies with the best CMake Package Manager out there **FetchContent**.
 
 **Advantages :**
   - Without changes `FetchContent` is automatically cached.
-  - `tipi . -t linux -u` injects automatically the tipi-cmake-provider. 
+  - `tipi . -t linux -u` injects automatically the cmake-tipi-provider. 
   - CMakeLists.txt stays fully compatible without tipi just with plain CMake
 
 
@@ -54,6 +54,6 @@ tipi installs the FetchContent provider by defining: [`-DCMAKE_PROJECT_TOP_LEVEL
 It leverages the standard CMake [DEPENDENCY_PROVIDER](https://cmake.org/cmake/help/latest/command/cmake_language.html#dependency-providers) feature dedicated to integrate with FetchContent and find_package.
 
 ## Help & Support
-🧚 Get [community support](https://github.com/tipi-build/tipi-cmake-provider/issues)
+🧚 Get [community support](https://github.com/tipi-build/cmake-tipi-provider/issues)
 <br/>📖 [Read tipi documentation](https://tipi.build/documentation)
 <br/>📖 [Read CMake FetchContent documentation](https://cmake.org/cmake/help/latest/module/FetchContent.html)
