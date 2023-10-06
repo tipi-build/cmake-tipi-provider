@@ -23,8 +23,9 @@ Exactly as the CMake FetchContent documentation requires, the build will just be
 It gets enabled in all CMake builds driven by tipi, 
 
 1. 🚀 Install the latest [`tipi` release](https://github.com/tipi-build/cli)
-2. Run the CMake build via : `tipi . -t linux|macos|windows -u`
-3. Add the FetchContent you need in your CMakeLists
+2. Set the environment variable : `export CMAKE_TIPI_PROVIDER_ENABLE=ON`
+3. Run the CMake build via : `tipi . -t linux|macos|windows -u`
+4. Add the FetchContent you need in your CMakeLists
 
 ```cmake
 Include(FetchContent)
