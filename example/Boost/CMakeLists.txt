@@ -1,6 +1,6 @@
 set(FETCHCONTENT_QUIET OFF CACHE BOOL "" FORCE)
 cmake_minimum_required(VERSION 3.24)
-project(add_external_project)
+project(BoostDependent)
 
 Include(FetchContent)
 FetchContent_Declare(
