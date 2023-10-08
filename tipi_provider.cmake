@@ -63,6 +63,7 @@ macro(tipi_provide_dependency method package_name)
           RESULT_VARIABLE error_building
           ECHO_OUTPUT_VARIABLE
           ECHO_ERROR_VARIABLE
+          COMMAND_ERROR_IS_FATAL ANY
           )
       
         if (NOT error_building)
