@@ -79,16 +79,18 @@ macro(tipi_provide_dependency method package_name)
 
     endif()
     
-    sbom_add(
-      PACKAGE ${package_name}
-      DOWNLOAD_LOCATION ${ARG_GIT_REPOSITORY}
-      VERSION ${ARG_GIT_TAG}
-      #[EXTREF <ref>...]
-      #[LICENSE <string>]
-      #[RELATIONSHIP <string>]
-      #[SPDXID <id>]
-      #SUPPLIER Boost
-    )
+    if(NOT "${_sbom_project}" STREQUAL "")
+      sbom_add(
+        PACKAGE ${package_name}
+        DOWNLOAD_LOCATION ${ARG_GIT_REPOSITORY}
+        VERSION ${ARG_GIT_TAG}
+        #[EXTREF <ref>...]
+        #[LICENSE <string>]
+        #[RELATIONSHIP <string>]
+        #[SPDXID <id>]
+        #SUPPLIER Boost
+      )
+    endif()
 
     list(INSERT CMAKE_FIND_ROOT_PATH 0 "${ARG_SOURCE_DIR}/build/${POLLY_TOOLCHAIN_TAG}/installed" )
     list(APPEND CMAKE_PREFIX_PATH "${ARG_SOURCE_DIR}/build/${POLLY_TOOLCHAIN_TAG}/installed" )

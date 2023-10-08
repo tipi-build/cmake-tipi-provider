@@ -1,4 +1,4 @@
-# cmake-tipi-provider: Automatic build caching for CMake FetchContent 
+# cmake-tipi-provider: Automatic build caching and SBOM generation for CMake FetchContent 
 **tipi.build ❤️ CMake**
 
 <img src="./assets/tipi.build%20logo.svg" witdth="100px" height="100px"/>
