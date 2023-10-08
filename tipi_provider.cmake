@@ -53,10 +53,8 @@ macro(tipi_provide_dependency method package_name)
       # which detects a recursive call for the same thing and avoids calling
       # the provider again if dep_name is the same as the current call.
       if(NOT ${package_name}_POPULATED)
-        message("**** About to call $ENV{CURRENT_TIPI_BINARY} ")
         # Fetch the content using previously declared details
         FetchContent_Populate(${package_name})
-        message("**** Calling $ENV{CURRENT_TIPI_BINARY} ")
         execute_process(
           COMMAND $ENV{CURRENT_TIPI_BINARY} -t ${POLLY_TOOLCHAIN_TAG} -u  --install .
           WORKING_DIRECTORY ${ARG_SOURCE_DIR}
