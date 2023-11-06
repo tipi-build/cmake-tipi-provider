@@ -16,7 +16,7 @@ This JSON file is not a "standard CMake" way for CMake natives to express themse
   - `tipi . -t linux -u` injects automatically the cmake-tipi-provider. 
   - CMakeLists.txt stays fully compatible without tipi just with plain CMake
 
-
+ 
 ## How to use it ?
 Exactly as the CMake FetchContent documentation requires, the build will just be cached and faster to restore.
 
