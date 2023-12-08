@@ -2,6 +2,16 @@ set(FETCHCONTENT_QUIET OFF CACHE BOOL "" FORCE)
 cmake_minimum_required(VERSION 3.24)
 project(BoostDependent)
 
+if (COMMAND sbom_generate) 
+sbom_generate(
+  OUTPUT
+    ${CMAKE_INSTALL_PREFIX}/sbom-${GIT_VERSION_PATH}.spdx
+  LICENSE MIT
+  SUPPLIER tipi
+  SUPPLIER_URL https://tipi.build
+)
+endif()
+
 Include(FetchContent)
 FetchContent_Declare(
     Boost
