@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.24)
 project(example_app)
 
 include(${CMAKE_CURRENT_LIST_DIR}/.tipi/cmake/sbom.cmake)
-#XXX: This should be the right way to do it, but in v0.0.55 we do not have it on Module path by default : include(sbom)
 
 # Setup the SBOM to be generated during install.
 sbom_generate(
@@ -14,29 +13,11 @@ sbom_generate(
   SUPPLIER_URL https://tipi.build
 )
 
-
 # If you want to check REUSE compliance.
 #reuse_lint()
 
 # If you want to generate a SPDX file with the license information of the source code.
 reuse_spdx()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Dependencies
 Include(FetchContent)
@@ -58,36 +39,8 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Boost)
 find_package(boost_filesystem CONFIG REQUIRED)
 
-
-
-
-
-
-
-
-
-
-
 add_executable(app app.cpp)
 target_link_libraries(app Catch2::Catch2WithMain Boost::filesystem)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Install the application.
 install(

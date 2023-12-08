@@ -12,16 +12,6 @@ sbom_generate(
 )
 endif()
 
-
-
-
-
-
-
-
-
-
-
 Include(FetchContent)
 FetchContent_Declare(
     Boost
