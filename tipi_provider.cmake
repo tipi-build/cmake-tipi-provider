@@ -35,7 +35,7 @@ macro(tipi_provide_dependency method package_name)
 
     file(MAKE_DIRECTORY ${ARG_SOURCE_DIR})
     execute_process(
-      COMMAND $ENV{CURRENT_TIPI_BINARY} -t ${POLLY_TOOLCHAIN_TAG} -u  --install restore "${ARG_GIT_REPOSITORY}" "${ARG_GIT_TAG}"  
+      COMMAND $ENV{CURRENT_TIPI_BINARY} -t ${POLLY_TOOLCHAIN_TAG} -u -C ${CMAKE_BUILD_TYPE} --install restore "${ARG_GIT_REPOSITORY}" "${ARG_GIT_TAG}" $ENV{TIPI_DASH_DASH_CMAKE_OPTIONS}
       #${package_name} --installdir ${TIPI_PROVIDER_INSTALL_DIR}
       WORKING_DIRECTORY ${ARG_SOURCE_DIR}
       RESULT_VARIABLE error_restoring_cache
@@ -56,7 +56,7 @@ macro(tipi_provide_dependency method package_name)
         # Fetch the content using previously declared details
         FetchContent_Populate(${package_name})
         execute_process(
-          COMMAND $ENV{CURRENT_TIPI_BINARY} -t ${POLLY_TOOLCHAIN_TAG} -u  --install .
+          COMMAND $ENV{CURRENT_TIPI_BINARY} -t ${POLLY_TOOLCHAIN_TAG} -C ${CMAKE_BUILD_TYPE} -u  --install . $ENV{TIPI_DASH_DASH_CMAKE_OPTIONS}
           WORKING_DIRECTORY ${ARG_SOURCE_DIR}
           RESULT_VARIABLE error_building
           ECHO_OUTPUT_VARIABLE
